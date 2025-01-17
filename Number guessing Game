@@ -1,0 +1,36 @@
+import random
+
+print("Welcome to the game !!!\nYoy have 7 chances to guess the number")
+print("Enter the range")
+n1 = int(input())
+n2 = int(input())
+number_to_guess = random.randrange(n1,n2)
+chances = 7
+guess_counter = 0
+
+while guess_counter < chances:
+
+    guess_counter += 1
+    my_guess = int(input('Please Enter your Guess :'))
+    if my_guess == number_to_guess:
+        print(f'The number is {number_to_guess} and you found it !! in the {guess_counter} attempt')
+        break
+    elif my_guess > number_to_guess:
+        print('Your guess is higher')
+
+    elif my_guess < number_to_guess:
+        print('Your guess is lower')
+
+    elif guess_counter >= chances and my_guess != number_to_guess:
+        print(f'Oops Sorry, The number is {number_to_guess} Better Luck next time !!!')
+
+# Sample Input and Output:
+Welcome to the game !!!
+Yoy have 7 chances to guess the number
+Enter the range
+4
+20
+Please Enter your Guess :12
+Your guess is lower
+Please Enter your Guess :15
+The number is 15 and you found it !! in the 2 attempt
