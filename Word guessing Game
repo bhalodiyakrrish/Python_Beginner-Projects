@@ -1,0 +1,89 @@
+import random
+
+name = input("What's ur name?")
+print("Welcome to the game ",name)
+n = int(input("Enter the number of words :"))
+
+words = []
+for i in range(n):
+    word = input()
+    words.append(word)
+print("The list is :", words)
+
+word_guess = random.choice(words)
+print("Guess the characters :")
+guesses = ''
+turns = 7
+
+while turns > 0:
+
+    failed = 0
+
+    for char in word_guess:
+        if char in guesses:
+            print(char, end=" ")
+
+        else:
+            print("_")
+            failed += 1
+
+    if failed == 0:
+        print("You Win")
+        print("The Word is:", word_guess)
+        break
+
+    print()
+    guess = input("Guess a character:")
+    guesses += guess
+
+    if guess not in word_guess:
+
+        turns -= 1
+        print("Wrong")
+        print("You have", + turns, 'more guesses')
+
+        if turns == 0:
+            print("You Loose")
+
+
+# Sample Input and Output:
+
+What's ur name?Krrish
+Welcome to the game  Krrish
+Enter the number of words :3
+Banana
+Apple
+Watermelon
+The list is : ['Banana', 'Apple', 'Watermelon']
+Guess the characters :
+_
+_
+_
+_
+_
+_
+
+Guess a character:b
+Wrong
+You have 6 more guesses
+_
+_
+_
+_
+_
+_
+
+Guess a character:B
+B _
+_
+_
+_
+_
+
+Guess a character:a
+B a _
+a _
+a
+Guess a character:n
+B a n a n a You Win
+The Word is: Banana
